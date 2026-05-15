@@ -1,0 +1,10 @@
+checking_balance: |
+  Checking your {{token}} balance across all chains.
+  This is read-only — no transaction needed.
+
+balance_results_stub: |
+  Your {{token}} balances are displayed on screen.
+
+checking_portfolio: |
+  Loading your portfolio across Ethereum, Arbitrum, Base, and Solana.
+  Remember, all your funds are on-chain.

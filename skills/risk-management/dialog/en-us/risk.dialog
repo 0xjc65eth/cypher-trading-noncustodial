@@ -1,0 +1,15 @@
+stop_loss_set: |
+  Stop-loss set at {{percentage}} percent.
+  This will automatically close your position if the price drops that much.
+
+take_profit_set: |
+  Take-profit set at {{percentage}} percent.
+  Your position will close automatically when it reaches this profit target.
+
+max_position_set: |
+  Maximum position size set to {{percentage}} percent of your portfolio.
+  This helps prevent overexposure to a single trade.
+
+show_settings: |
+  Displaying your current risk settings on screen.
+  Your stop-loss and take-profit are enforced via smart contracts.

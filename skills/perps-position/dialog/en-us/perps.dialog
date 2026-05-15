@@ -1,0 +1,12 @@
+open_long: |
+  Opening a long position on {{token}} with {{leverage}}x leverage via GMX.
+  Your position will execute on Arbitrum for low fees.
+  Make sure you understand the risks of leverage.
+
+open_short: |
+  Opening a short position on {{token}} with {{leverage}}x leverage.
+  Shorting is risky — your position can be liquidated if the price goes up.
+
+close_position: |
+  Closing your active perp position.
+  This will return your margin to your wallet.

@@ -1,0 +1,12 @@
+confirm_swap: |
+  Ready to swap {{amount}} {{token1}} for {{token2}}.
+  This transaction will be signed on your device.
+  Say "confirm" to proceed, or "cancel" to abort.
+
+swap_executing: |
+  Executing your swap now.
+  The transaction is being signed on your device.
+  Your keys never leave your wallet.
+
+swap_cancelled: |
+  Swap cancelled. Your funds are safe.

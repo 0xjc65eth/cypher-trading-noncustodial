@@ -1,0 +1,17 @@
+connecting: |
+  Opening WalletConnect.
+  Scan the QR code with your wallet app.
+  Your keys stay on your device — always.
+
+disconnecting: |
+  Disconnecting your wallet.
+  You can reconnect anytime. Your funds are safe on-chain.
+
+connected: |
+  Wallet connected: {{address}}.
+  Ready to trade non-custodial on multiple chains.
+
+not_connected: |
+  No wallet connected yet.
+  Say "connect wallet" to start trading.
+  Remember, your keys stay on your device.

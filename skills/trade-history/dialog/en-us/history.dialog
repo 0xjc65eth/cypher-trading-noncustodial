@@ -1,0 +1,10 @@
+fetching_history: |
+  Retrieving your trade history from the blockchain.
+  I'll show your swaps, perps positions, and P&L.
+
+last_trade: |
+  Showing your most recent trade details on screen.
+
+performance: |
+  Calculating your portfolio performance.
+  Remember, past performance doesn't guarantee future results.

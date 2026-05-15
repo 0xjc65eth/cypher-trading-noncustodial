@@ -1,0 +1,7 @@
+price_response: |
+  Checking the best price for {{token}} across 1inch, Jupiter, and Uniswap...
+  I'll show you the results on screen.
+
+best_price: |
+  Getting the best route for {{token1}} to {{token2}}.
+  I scan all major DEX aggregators to find you the lowest slippage.
