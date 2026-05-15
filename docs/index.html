@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cypher Trading — Voice-First Non-Custodial DeFi Trading Assistant. Say Hey Cypher and trade on any DEX by voice.">
+<meta property="og:title" content="Cypher Trading — Voice-First DeFi">
+<meta property="og:description" content="Say 'Hey Cypher' — Trade on any DEX by voice. Non-custodial. Multi-chain. Open source.">
+<meta property="og:image" content="https://0xjc65eth.github.io/cypher-trading-noncustodial/banner.svg">
+<meta property="og:url" content="https://github.com/0xjc65eth/cypher-trading-noncustodial">
+<meta name="twitter:card" content="summary_large_image">
+<title>🔥 Cypher Trading — Voice-First Non-Custodial DeFi</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #0a0a1a;
+    color: #e0e0e0;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    background: radial-gradient(ellipse at center, #1a0a2e 0%, #0a0a1a 70%);
+  }
+  .orb {
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,255,136,0.3), rgba(0,212,255,0.15), rgba(123,47,247,0.05));
+    margin-bottom: 2rem;
+    position: relative;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  .orb::after {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    border-radius: 50%;
+    border: 2px solid rgba(0,255,136,0.5);
+    animation: ring 1.5s ease-out infinite;
+  }
+  .orb::before {
+    content: '';
+    position: absolute;
+    inset: 55px;
+    border-radius: 50%;
+    background: rgba(0,255,136,0.6);
+    box-shadow: 0 0 30px rgba(0,255,136,0.4);
+    animation: core 1s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { transform: scale(1); box-shadow: 0 0 60px rgba(0,255,136,0.15); }
+    50% { transform: scale(1.05); box-shadow: 0 0 100px rgba(0,255,136,0.25); }
+  }
+  @keyframes ring {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+  }
+  @keyframes core {
+    0%,100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.15); opacity: 0.9; }
+  }
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
+    background: linear-gradient(135deg, #00ff88, #00d4ff, #7b2ff7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+    letter-spacing: -2px;
+  }
+  .subtitle {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: #aaa;
+    margin-bottom: 1rem;
+  }
+  .tagline {
+    font-family: 'SF Mono','Fira Code',monospace;
+    color: #00ff88;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+  }
+  .badges {
+    display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .badge {
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid;
+  }
+  .badge-nc { color:#00ff88; border-color:#00ff8833; background:#00ff8811; }
+  .badge-mc { color:#00d4ff; border-color:#00d4ff33; background:#00d4ff11; }
+  .badge-va { color:#7b2ff7; border-color:#7b2ff733; background:#7b2ff711; }
+  .badge-os { color:#ff6b35; border-color:#ff6b3533; background:#ff6b3511; }
+  .cta {
+    display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+  }
+  .btn {
+    padding: 0.8rem 2rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg,#00ff88,#00d4ff);
+    color: #0a0a1a;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,255,136,0.3); }
+  .btn-secondary {
+    border: 1px solid #333;
+    color: #e0e0e0;
+  }
+  .btn-secondary:hover { border-color: #00ff88; color: #00ff88; }
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 2rem;
+  }
+  .feature {
+    background: #111122;
+    border: 1px solid #1a1a3a;
+    border-radius: 16px;
+    padding: 2rem;
+    transition: border-color 0.3s;
+  }
+  .feature:hover { border-color: #00ff8844; }
+  .feature h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #00ff88; }
+  .feature p { color: #999; font-size: 0.95rem; }
+  .commands {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #111122;
+    border-radius: 16px;
+    border: 1px solid #1a1a3a;
+  }
+  .commands h2 { color: #00d4ff; margin-bottom: 1rem; text-align: center; }
+  .cmd {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #1a1a3a;
+    font-family: 'SF Mono',monospace;
+  }
+  .cmd:last-child { border-bottom: none; }
+  .cmd-cmd { color: #00ff88; min-width: 280px; font-size: 0.9rem; }
+  .cmd-arrow { color: #333; }
+  .cmd-desc { color: #888; font-size: 0.85rem; }
+  footer {
+    text-align: center;
+    padding: 3rem;
+    color: #444;
+    font-size: 0.85rem;
+    border-top: 1px solid #1a1a3a;
+    margin-top: 4rem;
+  }
+  footer a { color: #00ff88; text-decoration: none; }
+  .chains {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    margin: 1rem 0 2rem;
+  }
+  .chain {
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: #1a1a3a;
+    color: #aaa;
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="orb"></div>
+  <h1>CYPHER</h1>
+  <p class="subtitle">Voice-First Non-Custodial DeFi Trading</p>
+  <p class="tagline">Say "Hey Cypher" — Trade on any DEX by voice</p>
+
+  <div class="badges">
+    <span class="badge badge-nc">🔒 Non-Custodial</span>
+    <span class="badge badge-mc">⛓️ Multi-Chain</span>
+    <span class="badge badge-va">🎙️ Voice AI</span>
+    <span class="badge badge-os">📂 Open Source</span>
+  </div>
+
+  <div class="chains">
+    <span class="chain">⧫ Ethereum</span>
+    <span class="chain">🔷 Arbitrum</span>
+    <span class="chain">🔵 Base</span>
+    <span class="chain">🟣 Solana</span>
+    <span class="chain">🟪 Polygon</span>
+  </div>
+
+  <div class="cta">
+    <a href="https://github.com/0xjc65eth/cypher-trading-noncustodial" class="btn btn-primary" target="_blank">⭐ Star on GitHub</a>
+    <a href="https://github.com/0xjc65eth/cypher-trading-noncustodial/blob/main/CONTRIBUTING.md" class="btn btn-secondary" target="_blank">🤝 Contribute</a>
+  </div>
+</section>
+
+<section class="features">
+  <div class="feature">
+    <h3>🎙️ Voice-First</h3>
+    <p>Trade by speaking. "Swap 1 ETH to USDC" — done in 3 seconds. No clicks, no complex UIs. Just your voice.</p>
+  </div>
+  <div class="feature">
+    <h3>🔒 Truly Non-Custodial</h3>
+    <p>Your private keys NEVER leave your device. All transactions signed client-side via WalletConnect v2. We can't access your funds.</p>
+  </div>
+  <div class="feature">
+    <h3>⛓️ Multi-Chain</h3>
+    <p>Ethereum, Arbitrum, Base, Solana, Polygon. One voice. All chains. DEX aggregation via 1inch, Jupiter, and GMX.</p>
+  </div>
+  <div class="feature">
+    <h3>♿ Accessibility-First</h3>
+    <p>Built for blind and visually impaired traders. Motor-disabled users. Anyone locked out of click-heavy DeFi interfaces.</p>
+  </div>
+  <div class="feature">
+    <h3>🧠 AI Subagents</h3>
+    <p>Voice Agent, Trading Agent, Security Agent work together. Real-time quotes, best execution, risk verification.</p>
+  </div>
+  <div class="feature">
+    <h3>📂 100% Open Source</h3>
+    <p>MIT licensed. Every line of code visible and auditable. No backdoors. No hidden fees. Community-driven.</p>
+  </div>
+</section>
+
+<section class="commands">
+  <h2>🎙️ Try These Voice Commands</h2>
+  <div class="cmd"><span class="cmd-cmd">"Hey Cypher, swap 1 ETH to USDC"</span><span class="cmd-arrow">→</span><span class="cmd-desc">Execute a swap at best price</span></div>
+  <div class="cmd"><span class="cmd-cmd">"Hey Cypher, what's the price of SOL?"</span><span class="cmd-arrow">→</span><span class="cmd-desc">Real-time price across DEXes</span></div>
+  <div class="cmd"><span class="cmd-cmd">"Hey Cypher, open long on SOL with 5x"</span><span class="cmd-arrow">→</span><span class="cmd-desc">Open a leveraged position on GMX</span></div>
+  <div class="cmd"><span class="cmd-cmd">"Hey Cypher, check my balance"</span><span class="cmd-arrow">→</span><span class="cmd-desc">Portfolio across all chains</span></div>
+  <div class="cmd"><span class="cmd-cmd">"Hey Cypher, set stop-loss at 10%"</span><span class="cmd-arrow">→</span><span class="cmd-desc">Risk management by voice</span></div>
+  <div class="cmd"><span class="cmd-cmd">"Hey Cypher, what's my P&L?"</span><span class="cmd-arrow">→</span><span class="cmd-desc">Trade history and performance</span></div>
+</section>
+
+<footer>
+  <p>🔥 <a href="https://github.com/0xjc65eth/cypher-trading-noncustodial" target="_blank">github.com/0xjc65eth/cypher-trading-noncustodial</a></p>
+  <p>MIT License · Built with OVOS + Electron + React + ethers.js + WalletConnect v2</p>
+  <p style="margin-top:0.5rem;font-size:0.75rem;">"Hey Cypher" — The future of trading is voice.</p>
+</footer>
+
+</body>
+</html>
