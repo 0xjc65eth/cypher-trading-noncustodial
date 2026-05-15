@@ -1,0 +1,22 @@
+🎙️ Proud to announce Cypher Trading — the first non-custodial voice assistant for DeFi trading.
+
+The problem: DeFi requires 15+ clicks, excludes disabled users, and creates friction that drives people to centralized exchanges (sacrificing custody).
+
+The solution: Speak to trade. "Hey Cypher, swap 1 ETH to USDC." Done in 3 seconds. Non-custodial. Multi-chain. Open source.
+
+Built with: OVOS (Open Voice OS), Electron + React, ethers.js, WalletConnect v2.
+
+Key innovations:
+🔒 True non-custodial — private keys never stored, never transmitted
+⛓️ Multi-chain from day 1 — Ethereum, Arbitrum, Base, Solana, Polygon
+🎙️ 7 voice skills — wallet, quotes, swaps, perps, balance, history, risk
+♿ Accessibility-first — DeFi for visually impaired & motor-disabled users
+🤖 AI subagents — Voice Agent, Trading Agent, Security Agent
+
+The vision: In 3 years, 50% of DeFi interaction will be voice-initiated.
+
+Open source (MIT). Looking for contributors.
+
+🔗 https://github.com/0xjc65eth/cypher-trading-noncustodial
+
+#DeFi #VoiceAI #Web3 #OpenSource #Accessibility #Crypto #Blockchain

@@ -222,16 +222,18 @@ import re
 with open('$CONTEXT_FILE', 'r') as f:
     content = f.read()
 # Extract content between MASTER_CONTEXT_START and MASTER_CONTEXT_END anchors
-match = re.search(r'<!-- MASTER_CONTEXT_START -->.*?
-\`\`\`\n(.*?)\`\`\`', content, re.DOTALL)
+match = re.search(r'MASTER_CONTEXT_START.*?\`\`\`\s*\n(.*?)\`\`\`', content, re.DOTALL)
 if match:
-    print(match.group(1))
+    ctx = match.group(1).strip()
+    with open('/tmp/cypher-ai-context.txt', 'w') as out:
+        out.write(ctx)
 else:
-    # Fallback: try first code block
     match = re.search(r'\`\`\`\n(.*?)\`\`\`', content, re.DOTALL)
     if match:
-        print(match.group(1))
+        with open('/tmp/cypher-ai-context.txt', 'w') as out:
+            out.write(match.group(1).strip())
 " > /tmp/cypher-ai-context.txt
+
 
   log "Master context extracted to /tmp/cypher-ai-context.txt"
   log "Context size: $(wc -c < /tmp/cypher-ai-context.txt) bytes"

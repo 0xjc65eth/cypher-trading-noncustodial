@@ -1,0 +1,15 @@
+🎙️ **Introducing Cypher Trading — Voice-First DeFi**
+
+Say "Hey Cypher" and trade on any DEX by voice. Non-custodial. Multi-chain. Open source.
+
+🔥 **Why Cypher?**
+→ 3-second voice trades ("Swap 1 ETH to USDC")
+→ Multi-chain: ETH, ARB, Base, SOL, MATIC
+→ Non-custodial: Your keys NEVER leave your device
+→ 7 voice skills, 3 AI subagents
+→ MIT licensed, open to contributors
+
+⭐ **Star the repo:** https://github.com/0xjc65eth/cypher-trading-noncustodial
+🤝 **Contribute:** CONTRIBUTING.md in the repo
+
+The future of DeFi is voice-activated. Help us build it. 🔥
