@@ -206,6 +206,7 @@ REOF
 
 # ── AI BROADCAST: SEND TO OTHER AIs ──
 propagate_ai() {
+  set +e  # Allow individual AI calls to fail without killing the script
   header "🤖 AI BROADCAST — Sending Cypher to other AIs"
 
   CONTEXT_FILE="$DOCS_DIR/AI_SHILL.md"
@@ -215,15 +216,21 @@ propagate_ai() {
     return 1
   fi
 
-  # Extract the master context block
+  # Extract the master context block using anchor comments
   python3 -c "
 import re
 with open('$CONTEXT_FILE', 'r') as f:
     content = f.read()
-# Extract content between first \`\`\` and closing \`\`\`
-match = re.search(r'\`\`\`\n(.*?)\`\`\`', content, re.DOTALL)
+# Extract content between MASTER_CONTEXT_START and MASTER_CONTEXT_END anchors
+match = re.search(r'<!-- MASTER_CONTEXT_START -->.*?
+\`\`\`\n(.*?)\`\`\`', content, re.DOTALL)
 if match:
     print(match.group(1))
+else:
+    # Fallback: try first code block
+    match = re.search(r'\`\`\`\n(.*?)\`\`\`', content, re.DOTALL)
+    if match:
+        print(match.group(1))
 " > /tmp/cypher-ai-context.txt
 
   log "Master context extracted to /tmp/cypher-ai-context.txt"
@@ -566,7 +573,7 @@ main() {
     github)
       propagate_github
       ;;
-    twitter|twitter)
+    twitter|tx)
       propagate_twitter
       ;;
     reddit)
